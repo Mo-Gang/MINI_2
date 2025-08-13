@@ -161,6 +161,7 @@ public class SensorDataEntity {
     public LocalDateTime getTimestamp() {
         return timestamp;
     }
+
     public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
@@ -168,6 +169,7 @@ public class SensorDataEntity {
     public Double getTemperature() {
         return temperature;
     }
+
     public void setTemperature(Double temperature) {
         this.temperature = temperature;
     }
@@ -175,6 +177,7 @@ public class SensorDataEntity {
     public Double getHumidity() {
         return humidity;
     }
+
     public void setHumidity(Double humidity) {
         this.humidity = humidity;
     }
@@ -182,6 +185,7 @@ public class SensorDataEntity {
     public Double getDistance() {
         return distance;
     }
+
     public void setDistance(Double distance) {
         this.distance = distance;
     }
@@ -189,6 +193,7 @@ public class SensorDataEntity {
     public Boolean getFlame() {
         return flame;
     }
+
     public void setFlame(Boolean flame) {
         this.flame = flame;
     }
@@ -196,6 +201,7 @@ public class SensorDataEntity {
     public Double getSound() {
         return sound;
     }
+
     public void setSound(Double sound) {
         this.sound = sound;
     }
@@ -203,6 +209,7 @@ public class SensorDataEntity {
     public Boolean getGasDigital() {
         return gasDigital;
     }
+
     public void setGasDigital(Boolean gasDigital) {
         this.gasDigital = gasDigital;
     }
@@ -210,23 +217,34 @@ public class SensorDataEntity {
     public Double getGasAnalog() {
         return gasAnalog;
     }
+
     public void setGasAnalog(Double gasAnalog) {
         this.gasAnalog = gasAnalog;
     }
 
-    // 엔티티 내용 확인용
+//    // 엔티티 내용 확인용
+//    @Override
+//    public String toString() {
+//        return "SensorDataEntity{" +
+//                "id=" + id +
+//                ", timestamp=" + timestamp +
+//                ", temperature=" + temperature +
+//                ", humidity=" + humidity +
+//                ", distance=" + distance +
+//                ", flame=" + flame +
+//                ", sound=" + sound +
+//                ", gasDigital=" + gasDigital +
+//                ", gasAnalog=" + gasAnalog +
+//                '}';
+//    }
+//}
+
     @Override
     public String toString() {
-        return "SensorDataEntity{" +
-                "id=" + id +
-                ", timestamp=" + timestamp +
-                ", temperature=" + temperature +
-                ", humidity=" + humidity +
-                ", distance=" + distance +
-                ", flame=" + flame +
-                ", sound=" + sound +
-                ", gasDigital=" + gasDigital +
-                ", gasAnalog=" + gasAnalog +
-                '}';
+        return String.format(
+                "SensorDataEntity{id=%d, timestamp=%s}%n" +
+                        "      temperature=%.2f, humidity=%.2f, distance=%.2f, flame=%b, sound=%.2f, gasDigital=%b, gasAnalog=%.2f",
+                id, timestamp, temperature, humidity, distance, flame, sound, gasDigital, gasAnalog
+        );
     }
 }

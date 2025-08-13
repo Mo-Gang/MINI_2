@@ -48,7 +48,8 @@ public class MqttSubscriber {
 
                     filteredData.setTimestamp(LocalDateTime.now());
                     repository.save(filteredData);
-                    System.out.println("✅ 저장된 데이터: " + filteredData);
+                    System.out.println("✅ (필터링 후) 저장된 데이터: " + filteredData);
+                    System.out.println("\n--------------------------------------\n");
 
                 } catch (Exception e) {
                     System.out.println("❌ JSON 파싱 또는 저장 실패: " + e.getMessage());
