@@ -1,4 +1,4 @@
-<img width="642" height="810" alt="image" src="https://github.com/user-attachments/assets/8697dcde-615c-45d7-8fd6-4c4580d5bc12" />
+<img width="643" height="811" alt="image" src="https://github.com/user-attachments/assets/b2291bef-ac42-430f-9650-cd2cb592f803" />
 
 This project is an MQTT-based IoT Safety Monitoring System designed to detect early warning signs such as overheating, gas leaks, and fires, and to enhance environmental safety through alerts and data logging.
 Sensor data from the ET board is transmitted in real time via an MQTT broker to a Spring Boot application, where it is filtered and analyzed in the Service layer before being stored in MySQL.
