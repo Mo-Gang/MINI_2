@@ -240,6 +240,7 @@ public class SensorDataEntity {
 //}
 
     @Override
+
     public String toString() {
         return String.format(
                 "SensorDataEntity{id=%d, timestamp=%s}%n" +
