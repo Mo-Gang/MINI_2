@@ -1,7 +1,7 @@
 #include <WiFi.h>
 #include <PubSubClient.h>
 #include <DHT.h>
-#include "config_.h"
+#include "config.h"
 
 // WiFi 정보
 const char* ssid = "문경모의 iPhone";
