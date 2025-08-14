@@ -115,7 +115,7 @@
 //
 //}
 
-package com.example.mini_2.entity;
+package com.kseb.mini_2.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -222,22 +222,6 @@ public class SensorDataEntity {
         this.gasAnalog = gasAnalog;
     }
 
-//    // 엔티티 내용 확인용
-//    @Override
-//    public String toString() {
-//        return "SensorDataEntity{" +
-//                "id=" + id +
-//                ", timestamp=" + timestamp +
-//                ", temperature=" + temperature +
-//                ", humidity=" + humidity +
-//                ", distance=" + distance +
-//                ", flame=" + flame +
-//                ", sound=" + sound +
-//                ", gasDigital=" + gasDigital +
-//                ", gasAnalog=" + gasAnalog +
-//                '}';
-//    }
-//}
 
     @Override
 

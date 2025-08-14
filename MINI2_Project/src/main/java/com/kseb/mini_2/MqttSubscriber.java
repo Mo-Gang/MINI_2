@@ -1,7 +1,7 @@
-package com.example.mini_2;
+package com.kseb.mini_2;
 
-import com.example.mini_2.entity.SensorDataEntity;
-import com.example.mini_2.repository.SensorDataRepository;
+import com.kseb.mini_2.entity.SensorDataEntity;
+import com.kseb.mini_2.repository.SensorDataRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.eclipse.paho.client.mqttv3.*;
 import org.springframework.stereotype.Component;
@@ -37,7 +37,7 @@ public class MqttSubscriber {
 
             client.subscribe(topic, (t, msg) -> {
                 String payload = new String(msg.getPayload());
-                System.out.println("📥 수신된 메시지: " + payload);
+                System.out.println("수신된 메시지: " + payload);
 
                 try {
                     ObjectMapper mapper = new ObjectMapper();
@@ -48,16 +48,16 @@ public class MqttSubscriber {
 
                     filteredData.setTimestamp(LocalDateTime.now());
                     repository.save(filteredData);
-                    System.out.println("✅ (필터링 후) 저장된 데이터: " + filteredData);
+                    System.out.println("(필터링 후) 저장된 데이터: " + filteredData);
                     System.out.println("\n--------------------------------------\n");
 
                 } catch (Exception e) {
-                    System.out.println("❌ JSON 파싱 또는 저장 실패: " + e.getMessage());
+                    System.out.println("JSON 파싱 or 저장 실패: " + e.getMessage());
                     e.printStackTrace();
                 }
             });
 
-            System.out.println("✅ MQTT 구독 시작됨");
+            System.out.println("MQTT 구독 시작");
 
         } catch (MqttException e) {
             e.printStackTrace();
@@ -68,10 +68,10 @@ public class MqttSubscriber {
         // 거리 센서
         Double distance = filterValue("distance", data.getDistance(), 0, 100);
         if (distance != null && distance < 3) {
-            System.out.println("🚨 [위험] 거리 3cm 미만");
+            System.out.println("[위험] 거리 3cm 미만");
         }
         if (distance == null) {
-            System.out.println("⚠️ 거리 센서 이상치 감지, null 처리");
+            System.out.println("거리 센서 이상치 감지, null 처리");
         }
         data.setDistance(distance);
 
@@ -79,12 +79,12 @@ public class MqttSubscriber {
         Double temperature = filterValue("temperature", data.getTemperature(), 0, 50);
         if (temperature != null) {
             if (temperature >= 35) {
-                System.out.println("🚨 [위험] 온도 35도 이상");
+                System.out.println("[위험] 온도 35도 이상");
             } else if (temperature >= 30) {
-                System.out.println("⚠️ [경고] 온도 30~35도");
+                System.out.println("[경고] 온도 30~35도");
             }
         } else {
-            System.out.println("⚠️ 온도 센서 이상치 감지, null 처리");
+            System.out.println("온도 센서 이상치 감지, null 처리");
         }
         data.setTemperature(temperature);
 
@@ -92,32 +92,32 @@ public class MqttSubscriber {
         Double humidity = filterValue("humidity", data.getHumidity(), 0, 100);
         if (humidity != null) {
             if (humidity >= 75) {
-                System.out.println("🚨 [위험] 습도 75% 이상");
+                System.out.println("[위험] 습도 75% 이상");
             } else if (humidity >= 65) {
-                System.out.println("⚠️ [경고] 습도 65~75%");
+                System.out.println("[경고] 습도 65~75%");
             }
         } else {
-            System.out.println("⚠️ 습도 센서 이상치 감지, null 처리");
+            System.out.println("습도 센서 이상치 감지, null 처리");
         }
         data.setHumidity(humidity);
 
         // 소리 센서
         Double sound = filterValue("sound", data.getSound(), 0, 4000);
-        if (sound != null && sound >= 3000) {
-            System.out.println("⚠️ [경고] 소리 3000 이상");
+        if (sound != null && sound >= 1000) {
+            System.out.println("[경고] 소리 1000(ADC) 이상");
         }
         if (sound == null) {
-            System.out.println("⚠️ 소리 센서 이상치 감지, null 처리");
+            System.out.println("소리 센서 이상치 감지, null 처리");
         }
         data.setSound(sound);
 
         // 가스 센서 (analog)
-        Double gas = filterValue("gas", data.getGasAnalog(), 0, Double.MAX_VALUE);
-        if (gas != null && gas >= 3000) {
-            System.out.println("⚠️ [경고] 가스 3000 이상");
+        Double gas = filterValue("gas", data.getGasAnalog(), 0, 4000);
+        if (gas != null && gas >= 80) {
+            System.out.println("[경고] 가스 80(ADC) 이상");
         }
         if (gas == null) {
-            System.out.println("⚠️ 가스 센서 이상치 감지, null 처리");
+            System.out.println("가스 센서 이상치 감지, null 처리");
         }
         data.setGasAnalog(gas);
 
