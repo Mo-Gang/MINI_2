@@ -16,4 +16,4 @@ springboot-subscriber-*
 Thumbs.db
 
 # Arduino config
-config_.h
+config.h
