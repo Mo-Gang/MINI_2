@@ -1,3 +1,4 @@
+<<<<<<< HEAD:MINI2_Project/src/main/java/com/kseb/mini_2/entity/SensorDataEntity.java
 //package com.example.mini_2.entity;
 //
 //import jakarta.persistence.*;
@@ -116,6 +117,9 @@
 //}
 
 package com.kseb.mini_2.entity;
+=======
+package com.example.mini_2.entity;
+>>>>>>> 23e379a (내 로컬 작업 저장):MINI2_Project/src/main/java/com/example/mini_2/entity/SensorDataEntity.java
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -128,40 +132,46 @@ public class SensorDataEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "timestamp", nullable = false)
+    /** 수신 시각 */
     private LocalDateTime timestamp;
 
-    @Column(name = "temperature")
-    private Double temperature;
+    /** 센서 값들 */
+    private Double temperature;   // °C
+    private Double humidity;      // %
+    private Double distance;      // cm
+    private Double gasAnalog;     // 가스(아날로그)
+    private Double sound;         // 소리 (옵션)
 
-    @Column(name = "humidity")
-    private Double humidity;
+    /** 불꽃/연기 감지 */
+    private Boolean flame;        // 불꽃 감지
+    private Boolean smoke;        // 연기 감지  ← 새로 추가
 
-    @Column(name = "distance")
-    private Double distance;
+    // ===== Getter / Setter =====
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    @Column(name = "flame")
-    private Boolean flame;
+    public LocalDateTime getTimestamp() { return timestamp; }
+    public void setTimestamp(LocalDateTime timestamp) { this.timestamp = timestamp; }
 
-    @Column(name = "sound")
-    private Double sound;
+    public Double getTemperature() { return temperature; }
+    public void setTemperature(Double temperature) { this.temperature = temperature; }
 
-    @Column(name = "gas_digital")
-    private Boolean gasDigital;
+    public Double getHumidity() { return humidity; }
+    public void setHumidity(Double humidity) { this.humidity = humidity; }
 
-    @Column(name = "gas_analog")
-    private Double gasAnalog;
+    public Double getDistance() { return distance; }
+    public void setDistance(Double distance) { this.distance = distance; }
 
-    // ----- Getters & Setters -----
+    public Double getGasAnalog() { return gasAnalog; }
+    public void setGasAnalog(Double gasAnalog) { this.gasAnalog = gasAnalog; }
 
-    public Long getId() {
-        return id;
-    }
+    public Double getSound() { return sound; }
+    public void setSound(Double sound) { this.sound = sound; }
 
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
+    public Boolean getFlame() { return flame; }
+    public void setFlame(Boolean flame) { this.flame = flame; }
 
+<<<<<<< HEAD:MINI2_Project/src/main/java/com/kseb/mini_2/entity/SensorDataEntity.java
     public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
@@ -232,4 +242,8 @@ public class SensorDataEntity {
                 id, timestamp, temperature, humidity, distance, flame, sound, gasDigital, gasAnalog
         );
     }
+=======
+    public Boolean getSmoke() { return smoke; }
+    public void setSmoke(Boolean smoke) { this.smoke = smoke; }
+>>>>>>> 23e379a (내 로컬 작업 저장):MINI2_Project/src/main/java/com/example/mini_2/entity/SensorDataEntity.java
 }

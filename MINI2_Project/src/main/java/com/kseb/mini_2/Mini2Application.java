@@ -13,7 +13,6 @@ public class Mini2Application {
     }
 }
 
-// CommandLineRunner를 구현해 스프링이 관리하는 빈에서 실행
 @Component
 class MqttStarter implements CommandLineRunner {
 
@@ -24,8 +23,8 @@ class MqttStarter implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
-        mqttSubscriber.start();
+    public void run(String... args) {
+        mqttSubscriber.start(); // ✅ MqttSubscriber에서 @PostConstruct는 제거
     }
 }
 
