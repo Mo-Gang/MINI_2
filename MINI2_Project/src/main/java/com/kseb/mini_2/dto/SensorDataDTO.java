@@ -1,4 +1,4 @@
-package com.example.mini_2.dto;
+package com.kseb.mini_2.dto;
 
 import java.time.LocalDateTime;
 

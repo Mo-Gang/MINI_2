@@ -1,6 +1,6 @@
-package com.example.mini_2.stream;
+package com.kseb.mini_2.stream;
 
-import com.example.mini_2.dto.SensorDataDTO;
+import com.kseb.mini_2.dto.SensorDataDTO;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;

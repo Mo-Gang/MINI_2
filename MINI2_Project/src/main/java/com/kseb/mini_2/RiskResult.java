@@ -1,4 +1,4 @@
-package com.example.mini_2;
+package com.kseb.mini_2;
 
 // RiskResult.java
 public class RiskResult {

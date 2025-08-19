@@ -1,7 +1,7 @@
-package com.example.mini_2;
+package com.kseb.mini_2;
 
-import com.example.mini_2.dto.SensorDataDTO;               // DTO (네 패키지 경로에 맞춰 수정)
-import com.example.mini_2.stream.SensorHub;               // SSE 허브 (네 패키지 경로에 맞춰 수정)
+import com.kseb.mini_2.dto.SensorDataDTO;               // DTO (네 패키지 경로에 맞춰 수정)
+import com.kseb.mini_2.stream.SensorHub;               // SSE 허브 (네 패키지 경로에 맞춰 수정)
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;

@@ -1,6 +1,6 @@
-package com.example.mini_2;
+package com.kseb.mini_2;
 
-import com.example.mini_2.dto.SensorDataDTO;
+import com.kseb.mini_2.dto.SensorDataDTO;
 
 public class RiskEvaluator {
 
