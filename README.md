@@ -1,3 +1,4 @@
+![Uploading image.png…]()
 <img width="643" height="811" alt="image" src="https://github.com/user-attachments/assets/b2291bef-ac42-430f-9650-cd2cb592f803" />
 
 This project is an MQTT-based IoT Safety Monitoring System designed to detect early warning signs such as overheating, gas leaks, and fires, and to enhance environmental safety through alerts and data logging.
